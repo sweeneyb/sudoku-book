@@ -141,3 +141,12 @@ class Board:
             html += row_string % tuple(values)
         html += "</table>"
         return html
+
+    def get_raw_numbers(self):
+        output = ""
+        for index, row in self.rows.items():
+            for x in row:
+                # output.append(x.value)
+                output = output + str(x.value)
+            # output.append(map(str, [x.value for x in row]))
+        return output
