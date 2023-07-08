@@ -5,3 +5,6 @@
 *.png
 *.pdf
 venv/
+
+tex/*.aux
+tex/*.log
