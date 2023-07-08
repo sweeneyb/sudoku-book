@@ -8,3 +8,12 @@ venv/
 
 tex/*.aux
 tex/*.log
+tex/*.4ct
+tex/*.4tc
+tex/*.css
+tex/*.html
+tex/*.dvi
+tex/*.lg
+tex/*.tmp
+tex/*.xref
+tex/*.idv
