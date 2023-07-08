@@ -24,18 +24,7 @@
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
 
-    \setcounter{row}{1}
-    \setrow { }{2}{ }  {5}{ }{1}  { }{9}{ }
-    \setrow {8}{ }{ }  {2}{ }{3}  { }{ }{6}
-    \setrow { }{3}{ }  { }{6}{ }  { }{7}{ }
-
-    \setrow { }{ }{1}  { }{ }{ }  {6}{ }{ }
-    \setrow {5}{4}{ }  { }{ }{ }  { }{1}{9}
-    \setrow { }{ }{2}  { }{ }{ }  {7}{ }{ }
-
-    \setrow { }{9}{ }  { }{3}{ }  { }{8}{ }
-    \setrow {2}{ }{ }  {8}{ }{4}  { }{ }{7}
-    \setrow { }{1}{ }  {9}{ }{7}  { }{6}{ }
+    \input{puzzle001/unsolved.tex}
 
     \node[anchor=center] at (4.5, -0.5) {Unsolved Sudoku};
   \end{scope}
@@ -44,34 +33,14 @@
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
 
-    \setcounter{row}{1}
-    \setrow { }{2}{ }  {5}{ }{1}  { }{9}{ }
-    \setrow {8}{ }{ }  {2}{ }{3}  { }{ }{6}
-    \setrow { }{3}{ }  { }{6}{ }  { }{7}{ }
-
-    \setrow { }{ }{1}  { }{ }{ }  {6}{ }{ }
-    \setrow {5}{4}{ }  { }{ }{ }  { }{1}{9}
-    \setrow { }{ }{2}  { }{ }{ }  {7}{ }{ }
-
-    \setrow { }{9}{ }  { }{3}{ }  { }{8}{ }
-    \setrow {2}{ }{ }  {8}{ }{4}  { }{ }{7}
-    \setrow { }{1}{ }  {9}{ }{7}  { }{6}{ }
+    \input{puzzle001/unsolved.tex}
 
     \node[anchor=center] at (4.5, -0.5) {Solved Sudoku};
 
     \begin{scope}[blue, font=\sffamily\slshape]
-      \setcounter{row}{1}
-      \setrow {4}{ }{6}  { }{7}{ }  {3}{ }{8}
-      \setrow { }{5}{7}  { }{9}{ }  {1}{4}{ }
-      \setrow {1}{ }{9}  {4}{ }{8}  {2}{ }{5}
 
-      \setrow {9}{7}{ }  {3}{8}{5}  { }{2}{4}
-      \setrow { }{ }{3}  {7}{2}{6}  {8}{ }{ }
-      \setrow {6}{8}{ }  {1}{4}{9}  { }{5}{3}
+    \input{puzzle001/solved.tex}
 
-      \setrow {7}{ }{4}  {6}{ }{2}  {5}{ }{1}
-      \setrow { }{6}{5}  { }{1}{ }  {9}{3}{ }
-      \setrow {3}{ }{8}  { }{5}{ }  {4}{ }{2}
     \end{scope}
 
   \end{scope}
