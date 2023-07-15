@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{forloop}
 \usepackage[
     left=0.5in,
     right=0.5in,
@@ -27,37 +28,38 @@
   \stepcounter{row}
 }
 
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\padding}{mm}
+ {
+  \prg_replicate:nn { #1-\str_count:n { #2 } } { 0 } #2
+ }
+
 \begin{document}
-\begin{tikzpicture}[scale=.5]
+\newcounter{x}
+%\forloop{x}{1}{\value{x} < 10}{ % value of x is 1...9
+%    \arabic{x}                  % print x in arabic notation
+%    \zeropad{0000}{5}
+%}
+
+\foreach \x in {1,...,2}
+{
+    \padding{4}{\x}
+
+    \begin{tikzpicture}[scale=.5]
 
   \begin{scope}
-    \draw (0, 0) grid (9, 9);
-    \draw[very thick, scale=3] (0, 0) grid (3, 3);
-
-    \input{puzzle001/unsolved.tex}
-
-    \node[anchor=center] at (4.5, -0.5) {Unsolved Sudoku};
+      \draw (0, 0) grid (9, 9);
+      \draw[very thick, scale=3] (0, 0) grid (3, 3);
+      \input{./puzzle\padding{4}{\x}/unsolved.tex}
+      \node[anchor=center] at (4.5, -0.5) {Unsolved Sudoku};
   \end{scope}
+  
 
-  \begin{scope}[xshift=12cm]
-    \draw (0, 0) grid (9, 9);
-    \draw[very thick, scale=3] (0, 0) grid (3, 3);
-
-    \input{puzzle001/unsolved.tex}
-
-    \node[anchor=center] at (4.5, -0.5) {Solved Sudoku};
-
-    \begin{scope}[blue, font=\sffamily\slshape]
-
-    \input{puzzle001/solved.tex}
-
-    \end{scope}
-
-  \end{scope}
 
 \end{tikzpicture}
+\newpage
+}
 
-  \begin{figure}[h]
-    \includegraphics[scale=0.1]{../qrcode.png}
-  \end{figure}
+
+
 \end{document}

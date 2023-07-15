@@ -8,6 +8,10 @@ pacman -Syu texlive
 ```
 texi2pdf --pdf first.tex
 ```
+or
+```
+pdflatex sudoku.tex
+```
 
 ## html output
 ```
