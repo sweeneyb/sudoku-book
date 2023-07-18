@@ -32,10 +32,37 @@ def getPuzzle(base, difficulty):
 
     return (initial, final)
 
+def printTex(puzzle, where=sys.stdout):
+    print("    \setcounter{row}{1}", file=where)
+    for index, row in puzzle.rows.items():
+        foo = ""
+        print(f"    \setrow ", file=where, end="")
+        for x in row:
+            if x.value is 0:
+                foo = foo + "  "
+                print(f"{{ }}", file=where, end="")
+            else:
+                foo = foo + str(x.value) + " "
+                print(f"{{{x.value}}}", file=where, end="")
+            if (x.col +1) % 3 == 0:
+                # foo = foo +"|"
+                foo = foo + " "
+                print(f" ", file=where, end="")
+            else:
+                foo = foo + " "
+        print(f"", file=where)
+        # print(f"{index}", end="")
+        if (index-2) % 3 is 0:
+            print(f"", file=where)
+        # print(f'{foo}', file=where)
+
 difficulty = difficulties[sys.argv[2]]
 gen = Generator(sys.argv[1])
 
 initial, final = getPuzzle(gen, difficulty)
+
+for i in range(4,15):
+    print(f'{str(i).zfill(4)}')
 
 # printing out complete board (solution)
 print("The initial board before removals was: \r\n\r\n{0}".format(initial))
@@ -43,7 +70,9 @@ print("The initial board before removals was: \r\n\r\n{0}".format(initial))
 # printing out board after reduction
 print("The generated board after removals was: \r\n\r\n{0}".format(final))
 
-
+# printTex(final, where=open("foo", "w"))
+printTex(initial)
+printTex(final)
 
 #### old stuff
 # # getting desired difficulty from command line
