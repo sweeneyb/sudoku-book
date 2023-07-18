@@ -17,3 +17,5 @@ tex/*.lg
 tex/*.tmp
 tex/*.xref
 tex/*.idv
+
+tex/puzzle*

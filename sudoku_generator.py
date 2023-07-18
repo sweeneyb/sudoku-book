@@ -3,6 +3,7 @@ import sys
 from Sudoku.Generator import *
 import base64
 import qrcode
+import os
 
 
 from reportlab.pdfgen import canvas
@@ -59,10 +60,14 @@ def printTex(puzzle, where=sys.stdout):
 difficulty = difficulties[sys.argv[2]]
 gen = Generator(sys.argv[1])
 
-initial, final = getPuzzle(gen, difficulty)
-
 for i in range(4,15):
+    initial, final = getPuzzle(Generator(sys.argv[1]), difficulty)
     print(f'{str(i).zfill(4)}')
+    path = f"tex/puzzle{str(i).zfill(4)}"
+    if not os.path.exists(path):
+        os.mkdir(f"tex/puzzle{str(i).zfill(4)}")
+    printTex(initial, where=open(f"tex/puzzle{str(i).zfill(4)}/solved.tex", "w"))
+    printTex(final, where=open(f"tex/puzzle{str(i).zfill(4)}/unsolved.tex", "w"))
 
 # printing out complete board (solution)
 print("The initial board before removals was: \r\n\r\n{0}".format(initial))
