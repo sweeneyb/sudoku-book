@@ -39,7 +39,7 @@ def printTex(puzzle, where=sys.stdout):
         foo = ""
         print(f"    \setrow ", file=where, end="")
         for x in row:
-            if x.value is 0:
+            if x.value == 0:
                 foo = foo + "  "
                 print(f"{{ }}", file=where, end="")
             else:
@@ -53,21 +53,21 @@ def printTex(puzzle, where=sys.stdout):
                 foo = foo + " "
         print(f"", file=where)
         # print(f"{index}", end="")
-        if (index-2) % 3 is 0:
+        if (index-2) % 3 == 0:
             print(f"", file=where)
         # print(f'{foo}', file=where)
 
 difficulty = difficulties[sys.argv[2]]
 gen = Generator(sys.argv[1])
 
-for i in range(4,15):
+for i in range(1,100):
     initial, final = getPuzzle(Generator(sys.argv[1]), difficulty)
     print(f'{str(i).zfill(4)}')
-    path = f"tex/puzzle{str(i).zfill(4)}"
+    path = f"tex/puzzle{str(i)}"
     if not os.path.exists(path):
-        os.mkdir(f"tex/puzzle{str(i).zfill(4)}")
-    printTex(initial, where=open(f"tex/puzzle{str(i).zfill(4)}/solved.tex", "w"))
-    printTex(final, where=open(f"tex/puzzle{str(i).zfill(4)}/unsolved.tex", "w"))
+        os.mkdir(path)
+    printTex(initial, where=open(f"{path}/solved.tex", "w"))
+    printTex(final, where=open(f"{path}/unsolved.tex", "w"))
 
 # printing out complete board (solution)
 print("The initial board before removals was: \r\n\r\n{0}".format(initial))

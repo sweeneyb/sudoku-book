@@ -11,6 +11,7 @@
 ]{geometry}
 \usepackage[pdftex]{preview}
 \usepackage{tikz}
+\usepackage{siunitx}
 \usepackage{mathpazo}
 \usepackage{graphicx}
 \PreviewEnvironment{tikzpicture}
@@ -42,16 +43,16 @@
 %    \zeropad{0000}{5}
 %}
 
-\foreach \x in {1,...,2}
+\foreach \x in {1,...,99}
 {
-%    \padding{4}{\x}
+%    {\x}
 
 \begin{tikzpicture}[scale=.5]
 
   \begin{scope}
       \draw (0, 0) grid (9, 9);
       \draw[very thick, scale=3] (0, 0) grid (3, 3);
-      \input{./puzzle\padding{4}{\x}/unsolved.tex}
+      \input{./puzzle\x/unsolved.tex}
       \node[anchor=center] at (4.5, -0.5) {Unsolved Sudoku};
 
   \end{scope}
@@ -60,13 +61,13 @@
     \draw (0, 0) grid (9, 9);
     \draw[very thick, scale=3] (0, 0) grid (3, 3);
 
-    \input{./puzzle\padding{4}{\x}/unsolved.tex}
+    \input{./puzzle\x/unsolved.tex}
 
     \node[anchor=center] at (4.5, -0.5) {Solved Sudoku};
 
     \begin{scope}[blue, font=\sffamily\slshape]
 
-    \input{./puzzle\padding{4}{\x}/solved.tex}
+    \input{./puzzle\x/solved.tex}
 
     \end{scope}
 
